@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "munecos-1ee8b": {
+      "hosting": {
+        "app": [
+          "munecos-1ee8b"
+        ]
+      }
+    }
+  }
+}

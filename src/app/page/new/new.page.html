@@ -1,0 +1,115 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title class="ion-text-center">Cadastrar Projeto</ion-title>
+    <ion-icon name="game-controller" slot="start" size="large" class="ion-margin-start" color="success"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+
+  <p>Preencha os campos para inserir um novo projeto na nossa plataforma.</p>
+
+  <form [formGroup]="newForm" (ngSubmit)="newSend()">
+
+    <ion-list lines="full" class="ion-no-margin">
+
+      <ion-item>
+        <ion-label position="floating" color="primary">
+          Título:
+
+          <!-- Exibe feedback da validação -->
+          <ion-text color="danger" *ngIf="newForm.controls.title.errors">
+            <small *ngIf="newForm.controls.title.errors.required">* Obrigatório</small>
+            <small *ngIf="newForm.controls.title.errors.minlength">* Inválido</small>
+          </ion-text>
+
+        </ion-label>
+        <ion-input type="text" name="title" id="title" formControlName="title"></ion-input>
+      </ion-item>
+
+      <ion-item>
+
+        <ion-label position="floating" color="primary">
+          Slogan do projeto:
+
+          <!-- Exibe feedback da validação -->
+          <ion-text color="danger" *ngIf="newForm.controls.title.errors">
+            <small *ngIf="newForm.controls.title.errors.required">* Obrigatório</small>
+            <small *ngIf="newForm.controls.title.errors.minlength">* Inválido</small>
+          </ion-text>
+
+        </ion-label>
+        <ion-input type="text" name="slogan" id="slogan" formControlName="slogan"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="primary">
+          Descrição:
+
+          <!-- Exibe feedback da validação -->
+          <ion-text color="danger" *ngIf="newForm.controls.title.errors">
+            <small *ngIf="newForm.controls.title.errors.required">* Obrigatório</small>
+            <small *ngIf="newForm.controls.title.errors.minlength">* Inválido</small>
+          </ion-text>
+
+        </ion-label>
+        <ion-input type="text" name="description" id="description" formControlName="description"></ion-input>
+      </ion-item>
+
+      
+
+      <ion-item>
+        <ion-label position="floating" color="primary">
+         Categoria:
+          <!-- Exibe feedback da validação -->
+          <ion-text color="danger" *ngIf="newForm.controls.title.errors">
+            <small *ngIf="newForm.controls.title.errors.required">* Obrigatório</small>
+            <small *ngIf="newForm.controls.title.errors.minlength">* Inválido</small>
+          </ion-text>
+
+        </ion-label>
+        <ion-input type="text" name="category" id="category" formControlName="category"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="primary">
+         E-mail para contato:
+
+          <!-- Exibe feedback da validação -->
+          <ion-text color="danger" *ngIf="newForm.controls.title.errors">
+            <small *ngIf="newForm.controls.title.errors.required">* Obrigatório</small>
+            <small *ngIf="newForm.controls.title.errors.minlength">* Inválido</small>
+          </ion-text>
+
+        </ion-label>
+        <ion-input type="text" name="email" id="email" formControlName="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating" color="primary">
+       Telefone para contato:
+
+          <!-- Exibe feedback da validação -->
+          <ion-text color="danger" *ngIf="newForm.controls.title.errors">
+            <small *ngIf="newForm.controls.title.errors.required">* Obrigatório</small>
+            <small *ngIf="newForm.controls.title.errors.minlength">* Inválido</small>
+          </ion-text>
+
+        </ion-label>
+        <ion-input type="text" name="tel" id="tel" formControlName="tel"></ion-input>
+      </ion-item>
+
+      
+
+
+    </ion-list>
+
+    <ion-button type="submit" expand="block" class="ion-margin-vertical" [disabled]="newForm.invalid">Salvar Alterações
+    </ion-button>
+
+  </form>
+
+</ion-content>

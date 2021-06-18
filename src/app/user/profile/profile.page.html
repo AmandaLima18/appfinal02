@@ -1,0 +1,97 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+
+    <ion-title>Perfil</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card *ngIf="auth.user | async as user" class="ion-no-margin">
+    <img src="{{user.photoURL}}" alt="{{user.displayName}}" class="user-photo">
+    <ion-card-header>
+      <ion-card-title>{{user.displayName}}</ion-card-title>
+      <ion-card-subtitle>{{user.email}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Este é seu perfil no Google. Para editá-lo, acesse sua conta Google, clicando no botão.</p>
+
+      <ion-button color="primary" expand="block" (click)="toProfile()" class="ion-margin-top">
+        <ion-icon name="logo-google" slot="start"></ion-icon>
+        Perfil no Google
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-no-margin ion-margin-vertical" *ngIf="user">
+    <ion-card-header>
+      <ion-card-title>Perfil Local</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+
+      <ion-list>
+
+        <ion-item>
+          <strong>Cadastro em:</strong>&nbsp;{{ user.date | date: 'dd/MM/yyyy HH:mm' }}
+        </ion-item>
+        <ion-item>
+          <strong>Nome:</strong>&nbsp;{{user.name}}
+        </ion-item>
+        <ion-item>
+          <strong>E-mail:</strong>&nbsp;{{user.email}}
+        </ion-item>
+        <ion-item>
+          <strong>Sexo:</strong>&nbsp;{{user.gender}}
+        </ion-item>
+        <ion-item>
+          <strong>Celular:</strong>&nbsp;{{user.cellphone}}
+          <ion-icon slot="end" name="{{user.wsToggle}}"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <strong>Endereço:</strong>&nbsp;{{user.address}}
+        </ion-item>
+
+      </ion-list>
+
+      <p>Este é seu perfil no aplicativo. Para editá-lo, clique no botão [Editar] abaixo.</p>
+
+      <ion-button color="primary" expand="block" routerLink="/user/edit" class="ion-margin-top">
+        <ion-icon name="person" slot="start"></ion-icon>
+        Editar Perfil
+      </ion-button>
+
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-no-margin ion-margin-vertical">
+    <ion-card-header>
+      <ion-card-title>Sair / Logout</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Clique no botão abaixo para sair da aplicação.</p>
+      <ion-button color="warning" expand="block" routerLink="/user/logout" class="ion-margin-top">
+        <ion-icon name="log-out" slot="start"></ion-icon>
+        Sair / Logout
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card class="ion-no-margin ion-margin-vertical">
+    <ion-card-header>
+      <ion-card-title>Apagar Perfil</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>Clique no botão abaixo para remover seu cadastro da aplicação.</p>
+      <ion-button color="danger" expand="block" routerLink="/user/delete" class="ion-margin-top">
+        <ion-icon name="trash" slot="start"></ion-icon>
+        Apagar Perfil
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

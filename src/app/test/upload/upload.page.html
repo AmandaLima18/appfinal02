@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>upload</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <input type="file" (change)="uploadFile($event)" />
+  <div>{{ uploadPercent | async }}</div>
+  <a [href]="downloadURL | async">{{ downloadURL | async }}</a>
+
+</ion-content>

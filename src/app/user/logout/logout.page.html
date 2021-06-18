@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/user/profile"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Sair / Logout</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="ion-text-center">
+    <ion-icon class="icon" name="log-out-outline"></ion-icon>
+  </div>
+
+  <p>Tem certeza que deseja sair do aplicativo?</p>
+  <p>Lembre-se que esta ação não remove seu cadastro.</p>
+
+  <ion-button class="ion-margin-top" expand="block" routerLink="/user/profile" color="success">
+    <ion-icon name="arrow-back" slot="start"></ion-icon>
+    Cancelar Saída
+  </ion-button>
+
+  <ion-button class="ion-margin-top" expand="block" (click)="logout()" color="danger">
+    <ion-icon name="log-out" slot="start"></ion-icon>
+    Sair / Logout
+  </ion-button>
+
+</ion-content>

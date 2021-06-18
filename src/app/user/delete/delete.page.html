@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/user/profile"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Apagar Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <div class="ion-text-center">
+    <ion-icon class="icon" name="trash-outline"></ion-icon>
+  </div>
+
+  <p>Tem certeza que deseja apagar seu perfil do aplicativo?</p>
+  <p>Esta ação não tem retorno. Caso deseje usar o aplicativo no futuro, terá que se recadastrar.</p>
+
+  <ion-button class="ion-margin-top" expand="block" routerLink="/user/profile" color="success">
+    <ion-icon name="arrow-back" slot="start"></ion-icon>
+    Cancelar Remoção
+  </ion-button>
+
+  <ion-button class="ion-margin-top" expand="block" (click)="delete()" color="danger">
+    <ion-icon name="trash" slot="start"></ion-icon>
+    Apagar Perfil
+  </ion-button>
+
+</ion-content>

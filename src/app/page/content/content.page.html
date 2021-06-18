@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    
+    <ion-title>Projetos</ion-title>
+
+    <ion-thumbnail class="ion-margin-end" slot="end" *ngIf="auth.user | async as user">
+      <img routerLink="/user/profile" src="{{ user.photoURL }}" alt="{{ user.displayName }}">
+    </ion-thumbnail>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-horizontal">
+
+
+<h1 class="ion-text-center">Projetos Disponíveis </h1>
+
+<ion-card class="ion-no-margin ion-margin-vertical">
+  <ion-card-content>
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="12">
+
+          <ion-item>
+          <ion-label>Selecione a categoria desejada:</ion-label>
+          <ion-select value="brown" okText="Ok" cancelText="Cancelar">
+            <ion-select-option value="title">Saúde</ion-select-option>
+            <ion-select-option value="date">Comércios</ion-select-option>
+            <ion-select-option value="media">Ação Social</ion-select-option>
+            <ion-select-option value="platform">Rede Social</ion-select-option>
+            <ion-select-option value="jogo">Jogo On-line</ion-select-option>
+            <ion-select-option value="type">Todos</ion-select-option>
+          </ion-select>
+          </ion-item>
+        
+        </ion-col>
+        
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+</ion-card>
+
+  <div *ngFor="let projetos of data">
+
+  <ion-card class="ion-no-margin ion-margin-vertical">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">{{projetos.title }}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <h1 class="ion-text-center"> {{projetos.slogan }}</h1>
+      <ion-card-subtitle class="ion-text-center"> {{projetos.category }}</ion-card-subtitle>
+      <p class="ion-text-center">{{ projetos.description }}</p>
+      <h2 class="ion-text-center"> <ion-icon name="chatbubbles-outline"></ion-icon>        
+        Entre em contato com o(s) autor(es)</h2>
+      <h3 class="ion-text email"> <ion-icon name="mail-outline"></ion-icon>    {{ projetos.email }}</h3>     
+      <h3 class="ion-text tel"><ion-icon name="call-outline"></ion-icon>    {{ projetos.tel }}</h3> 
+    </ion-card-content>
+  </ion-card>
+
+  </div>
+</ion-content>
