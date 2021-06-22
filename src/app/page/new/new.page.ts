@@ -32,7 +32,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 export class NewPage implements OnInit {
 
   // Atributos
-  public apiURL = 'http://localhost:3000/';
+  public apiURL = 'http://localhost:3000';
   public newForm: FormGroup;
   public pipe = new DatePipe('en_US');
 
@@ -130,7 +130,15 @@ export class NewPage implements OnInit {
         ])
       ],
 
-     category: [''],
+      categorias: [                    // Nome do campo
+        '',                         // Valor inicial do campo
+        Validators.compose([        // Valida o campo
+          Validators.required,      // Campo é obrigatório
+          Validators.minLength(5),  // Deve ter pelo menos 5 caracteres
+          removeSpaces              // Remove espaços duplicados
+        ])
+      ],
+    
 
      // email do projeto(email)
      email: [                    // Nome do campo
